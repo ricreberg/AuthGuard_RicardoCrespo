@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Inicio de sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h1>Control de acceso</h1>
+  <p>Introduce tus credenciales para acceder a tu panel.</p>
+
+  <form (ngSubmit)="login()">
+    <ion-item>
+      <ion-input
+        label="Usuario"
+        labelPlacement="stacked"
+        name="username"
+        [(ngModel)]="username"
+        autocomplete="username"
+        required
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        label="Contraseña"
+        labelPlacement="stacked"
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        autocomplete="current-password"
+        required
+      ></ion-input>
+    </ion-item>
+
+    @if (error) {
+      <ion-text color="danger">
+        <p role="alert">{{ error }}</p>
+      </ion-text>
+    }
+
+    <ion-button
+      expand="block"
+      type="submit"
+      class="ion-margin-top"
+      [disabled]="!username.trim() || !password"
+    >
+      Entrar
+    </ion-button>
+  </form>
+</ion-content>

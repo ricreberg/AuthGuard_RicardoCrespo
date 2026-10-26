@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Administración</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h1>Bienvenido, {{ user()?.username }}</h1>
+  <p>Rol: {{ user()?.role }}</p>
+  <p>Esta página está reservada para administradores.</p>
+
+  <ion-button color="danger" (click)="logout()">
+    Cerrar sesión
+  </ion-button>
+</ion-content>
