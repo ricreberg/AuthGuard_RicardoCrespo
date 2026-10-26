@@ -12,8 +12,7 @@ export const routes: Routes = [
     path: 'admin',
     loadComponent: () =>
       import('./pages/admin/admin.page').then((m) => m.AdminPage),
-    canActivate: [authGuard, roleGuard],
-    data: { roles: ['admin'] },
+    canActivate: [authGuard, roleGuard('admin')],
   },
   {
     path: 'user-dashboard',
@@ -21,8 +20,7 @@ export const routes: Routes = [
       import('./pages/user-dashboard/user-dashboard.page').then(
         (m) => m.UserDashboardPage
       ),
-    canActivate: [authGuard, roleGuard],
-    data: { roles: ['operador'] },
+    canActivate: [authGuard, roleGuard('user')],
   },
   {
     path: '',
